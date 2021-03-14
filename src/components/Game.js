@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { calculateWinner } from '../helpers';
 import Board from './Board';
@@ -27,15 +26,18 @@ const Game = () => {
 
     // }
 
-    // const renderMoves = () => {
-
-    // }
+    const renderMoves = () => (
+        <button onClick={() => setBoard(Array(9).fill(null))}>
+            Start Game
+        </button>
+    )
 
     return (
         <>
             <Board squares={board} onClick={handleClick}></Board>
             <div style={styles}>
                 <p>{winner ? 'Winner: ' + winner : 'Next Player: ' + (xIsNext ? 'x' : 'O')}</p>
+                {renderMoves()}
             </div>
         </>
     )
